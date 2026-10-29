@@ -5,3 +5,5 @@ venv/
 *.db
 .pytest_cache/
 .DS_Store
+.flash-mem/
+.vscode/settings.json

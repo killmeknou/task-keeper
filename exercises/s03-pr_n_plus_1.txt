@@ -1,0 +1,29 @@
+방금 커밋한 N+1 수정을 PR로 올려주세요.
+
+--
+
+'Description' 내용을 다음과 같이 변경해 주세요.
+
+GET /tasks 응답 직렬화 시 할 일의 `task.tags`에 접근하면서
+할 일 개수만큼 태그 조회 쿼리가 추가로 실행되던 N+1 문제를 해결했습니다.
+`list_tasks()`에서 `selectinload(Task.tags)`로 태그를 한 번의 IN 쿼리로
+즉시 로딩하도록 변경했습니다.
+
+'리뷰어에게' 내용을 다음과 같이 변경해 주세요.
+
+단순 변경이지만 `selectinload` 적용 후 실제 쿼리 수 감소를
+로그로 확인해 주시면 좋겠습니다.
+> UI 변경이 없어 스크린샷 섹션은 제외했습니다.
+> 이슈 #1은 페이지네이션, 인덱스 등 후속 작업이 남아 있어
+> Closes 대신 Relates to 로 연결했습니다.
+> (완전히 닫으련 Closes #1로 변경 가능합니다.)
+
+--
+
+'gh pr create' 명령을 다음과 같이 변경하여 실행해 주세요.
+
+gh pr create --title "perf(task): list_tasks N+1 쿼리 제거(selectinload 적용) --body-file pr.md --base main
+
+--
+
+push와 PR 생성, 이슈 연결로 해 주세요.
